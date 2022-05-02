@@ -1,91 +1,48 @@
-# EverDev
+### Everdev can run functions by passing arrays of structures as parameters.
 
-**Everscale Development Environment**
+```
+$ everdev --version
+1.1.1
 
-[NPM package](https://www.npmjs.com/package/everdev)
+# Start Ever OS SE
+$ everdev se start 
 
-## [Quick Start](docs/guides/quick-start.md)
+# Set SE as a default network
+$ everdev n d se 
 
-**Get quick help in our telegram channel:**
+# Set default giver 
+$ everdev s add segiver 172af540e43a524763dd53b26a066d472a97c4de37d5498170564510608250c3
 
-[![Channel on Telegram](https://img.shields.io/badge/chat-on%20telegram-9cf.svg)](https://t.me/ever\_sdk)
+everdev sol compile Contract.sol 
 
-## Content Table
+# Deploy contract with balance = 1 Ever
+everdev  c d Contract.abi.json -v 1000000000
+  Contract is deployed at address: 0:a6f20deb51eb7f3448a750926ae888ac28943bfa8ebbf3ae1d357575b1fe98e2
 
-* [EverDev](./#everdev)
-  * [Content Table](./#content-table)
-  * [What is EverDev?](./#what-is-everdev)
-    * [Use-cases](./#use-cases)
-    * [What tools does it support?](./#what-tools-does-it-support)
-  * [Quick Start](./#quick-start)
-  * [Working with DevNet](./#working-with-devnet)
-  * [EverDev Extensibility](./#everdev-extensibility)
-  * [Troubleshooting](./#troubleshooting)
+$ everdev c run  Contract  --address  0:a6f20deb51eb7f3448a750926ae888ac28943bfa8ebbf3ae1d357575b1fe98e2 \
+    setAtOnce  --input '{ "points": [{ "color": "yellow", "center": { "x": 4, "y": 5 }}, {"color": "green", "center": { "x": 6, "y": 7 }}] }' 
 
-## What is EverDev?
 
-EverDev is a Node.js package with CLI interface that allows to perform the following use-cases from the single interface for Developer:
+$ everdev c run  Contract  --address  0:a6f20deb51eb7f3448a750926ae888ac28943bfa8ebbf3ae1d357575b1fe98e2 get
 
-### Use-cases
-
-* Easily manage all the core [Ever OS Developer Tools](https://everos.dev)
-* Configure networks (including Local Blockchain, Developer Network, Everscale (main) network): add, configure giver;
-* Manage keys: add, remove
-* Work with Everscale blockchain from CLI
-
-Also, this project serves as a backend for [EverDev VS Code extension](https://github.com/tonlabs/everdev-vscode).
-
-### What tools does it support?
-
-Components are downloaded and installed automatically for the target platform upon the first request.
-
-* [Solidity Compiler](docs/command-line-interface/solidity.md)
-* [C/C++ Compiler](docs/command-line-interface/c.md)
-* [Contract Management Tool](docs/command-line-interface/contract-management.md) - Work with your contracts from CLI. Deploy and run your contracts with convenient CLI commands.
-* [Network Tool](docs/command-line-interface/network-tool.md) - manage your networks: add, remove, configure givers.
-* [Signer Tool](docs/command-line-interface/signer-tool.md) - manage your keys and seedphrases: create your secret once and use it via alias with Contract Management Tool. Really easy.
-* [Evernode Platform: Startup Edition](docs/command-line-interface/evernode-platform-startup-edition-se.md) – Local blockchain for development and testing
-* [Debot Browser](docs/command-line-interface/debrowser.md) - Web debot browser. For now, Extraton Debot Browser is supported. Support of Surf Debot Browser is coming.
-* [TestSuite4](docs/command-line-interface/testsuite4.md) – Python lightweight framework for contract testing.
-* [tonos-cli](https://github.com/tonlabs/tonos-cli) – Command line tool for multisigwallet management and staking, includes CLI Debot Browser. EverDev helps with installation and version management.
-
-EverDev can be extended with other tools following the [instructions of integration](./#everdev-extensibility).
-
-## Quick Start
-
-Get your hands dirty with our great tools:) Follow the [Quick Start](docs/guides/quick-start.md) to get on board of Ever OS Development ASAP!
-
-## Command Line Interface
-
-### Quick start
-
-Start testing your contracts without any delay with this guide. It will help you get test tokens in Developer Network, prepare your environment and test your first contract. [Test my first contract!](docs/guides/work-with-contracts.md)
-
-### General command syntax
-
-```shell
-everdev <tool> <command> ...args
+    "output": {
+        "value0": [
+            {
+                "color": "yellow",
+                "center": {
+                    "x": "4",
+                    "y": "5"
+                }
+            },
+            {
+                "color": "green",
+                "center": {
+                    "x": "6",
+                    "y": "7"
+                }
+            }
+        ]
+    },
 ```
 
-Some tools (network, signer, contract, js) and commands have short aliases. For example instead of using `everdev network list` you can use `everdev n l` and even shorter `everdev nl`.
 
-Explore the detailed description of command line interface in the corresponding [section](broken-reference).
-
-## Working with DevNet
-
-Read how to deploy and configure your own Giver in DevNet in a separated guide: [Working with DevNet](docs/guides/work-with-devnet.md).
-
-## EverDev Extensibility
-
-TON Dev Environment is an integration point for development tools related to Everscale Blockchain.
-
-There are two kind of software connected to EverDev:
-
-* Development tools such as a compilers, networks, debuggers and so on.
-* User Interaction services such as an IDE plugins, CLI, GUI applications etc.
-
-Learn more about creating your own controller: [Creating Controller](docs/guides/creating-controller.md)
-
-## Troubleshooting
-
-If you encountered any problem try to seek the solution in [Troubleshooting Notes](docs/troubleshooting.md). If it didn't help - please, ask in our [telegram channel](https://t.me/ever\_sdk).

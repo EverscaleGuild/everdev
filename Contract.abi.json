@@ -1,0 +1,49 @@
+{
+	"ABI version": 2,
+	"version": "2.2",
+	"header": ["time", "expire"],
+	"functions": [
+		{
+			"name": "constructor",
+			"inputs": [
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "setWithIteration",
+			"inputs": [
+				{"components":[{"name":"color","type":"string"},{"components":[{"name":"x","type":"uint32"},{"name":"y","type":"uint32"}],"name":"center","type":"tuple"}],"name":"points","type":"tuple[]"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "setAtOnce",
+			"inputs": [
+				{"components":[{"name":"color","type":"string"},{"components":[{"name":"x","type":"uint32"},{"name":"y","type":"uint32"}],"name":"center","type":"tuple"}],"name":"points","type":"tuple[]"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "get",
+			"inputs": [
+			],
+			"outputs": [
+				{"components":[{"name":"color","type":"string"},{"components":[{"name":"x","type":"uint32"},{"name":"y","type":"uint32"}],"name":"center","type":"tuple"}],"name":"value0","type":"tuple[]"}
+			]
+		}
+	],
+	"data": [
+	],
+	"events": [
+	],
+	"fields": [
+		{"name":"_pubkey","type":"uint256"},
+		{"name":"_timestamp","type":"uint64"},
+		{"name":"_constructorFlag","type":"bool"},
+		{"name":"ver","type":"uint256"},
+		{"components":[{"name":"color","type":"string"},{"components":[{"name":"x","type":"uint32"},{"name":"y","type":"uint32"}],"name":"center","type":"tuple"}],"name":"m_pointsArray","type":"tuple[]"}
+	]
+}
